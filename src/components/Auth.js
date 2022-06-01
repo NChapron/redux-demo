@@ -1,15 +1,12 @@
-import { useDispatch, useSelector } from "react-redux";
-import { authActions } from "../store";
+import { useDispatch } from "react-redux";
+import { authActions } from "../store/auth";
 
 import classes from "./Auth.module.css";
 
 const Auth = () => {
-  const isLogin = useSelector((state) => state.auth.isLogin);
   const dispatch = useDispatch();
 
-  if (isLogin) {
-    return;
-  }
+
 
   const submitHandler = (event) => {
     event.preventDefault();
@@ -32,7 +29,6 @@ const Auth = () => {
           <button type="submit">Login</button>
         </form>
       </section>
-      {isLogin && <p>Commecte</p>}
     </main>
   );
 };
