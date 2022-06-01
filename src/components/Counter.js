@@ -1,6 +1,6 @@
-import { type } from "@testing-library/user-event/dist/type";
-import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { counterActions } from "../store";
+
 import classes from "./Counter.module.css";
 
 const Counter = () => {
@@ -9,15 +9,15 @@ const Counter = () => {
   const show = useSelector((state) => state.showCounter);
 
   const incrementHandler = () => {
-    dispatch({ type: "INCREMENT", amount: 1 });
+    dispatch(counterActions.increment(1));
   };
 
   const decrementHandler = () => {
-    dispatch({ type: "DECREMENT", amount: 1 });
+    dispatch(counterActions.decrement(1));
   };
 
   const toggleCounterHandler = () => {
-    dispatch({ type: "TOGGLE" });
+    dispatch(counterActions.toggleCounter());
   };
 
   return (
